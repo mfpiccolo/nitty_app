@@ -1,0 +1,29 @@
+development: &dev
+  adapter: postgresql
+  encoding: unicode
+  # database: nitty_app_development
+  database: nitty_app_test
+  pool: 5
+  username: <%= ENV["USER"] %>
+  password:
+  allow_concurrency: true
+  min_messages: warning
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: nitty_app_test
+  pool: 5
+  username: <%= ENV["USER"] %>
+  password:
+  allow_concurrency: true
+  min_messages: error
+
+staging:
+  <<: *dev
+  database: nitty_app_development
+
+production:
+  <<: *dev
+  database: nitty_app_development
+

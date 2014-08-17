@@ -1,0 +1,11 @@
+<table class="posts-table">
+  <% @posts.each do |p| %>
+    <tr>
+      <td><%= link_to p.id, post_path(p.id) %></td>
+      <td><%= p.name %></td>
+      <td><%= p.content %></td>
+      <td><%= link_to "Edit", edit_post_path(p) %></td>
+      <td><%= link_to "Destroy", post_path(p), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
